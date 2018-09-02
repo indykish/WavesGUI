@@ -221,8 +221,9 @@ export function parseArguments<T>(): T {
 
 export function route(connectionType: TConnection, buildType: TBuild, type: TPlatform) {
     return function (req, res) {
-
+        console.log("⎦˚◡˚⎣ » Request URL »"+ req.url);
         if (isTradingView(req.url)) {
+            console.log("trading view");
             get(`https://beta.wavesplatform.com/${req.url}`, (resp) => {
                 let data = '';
 
@@ -239,6 +240,7 @@ export function route(connectionType: TConnection, buildType: TBuild, type: TPla
             return null;
         }
 
+        console.log("⎦˚◡˚⎣ » Buildtype »"+ buildType);
         if (buildType !== 'dev') {
             if (isPage(req.url)) {
                 const path = join(__dirname, '..', 'dist', type, connectionType, buildType, 'index.html');
@@ -416,7 +418,9 @@ function routeStatic(req, res, connectionType: TConnection, buildType: TBuild, p
     const contentType = getType(url);
 
     const check = (root: string) => {
-        const path = join(root, url);
+    const path = join(root, url);
+    console.log("⎦˚◡˚⎣ » STATIC PATH »"+ path);
+    console.log(path);
         readFile(path).then((file: Buffer) => {
             res.setHeader('Cache-Control', 'public, max-age=31557600');
             res.writeHead(200, { 'Content-Type': contentType });

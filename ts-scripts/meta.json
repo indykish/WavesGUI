@@ -119,7 +119,7 @@
       "static/localization/translations/zh_TW.json"
     ]
   },
-  "domain": "https://beta.wavesplatform.com",
+  "domain": "https://commandcenter.rioos.sh:8080",
   "copyNodeModules": [
     "node_modules/qrcode-reader/dist/index.min.js"
   ],
@@ -138,9 +138,9 @@
   },
   "configurations": {
     "testnet": {
-      "code": "T",
-      "node": "https://testnodes.wavesnodes.com",
-      "matcher": "https://testnet1.wavesnodes.com/matcher",
+      "code": "L",
+      "node": "http://commandcenter.rioos.sh:6861",
+      "matcher": "http://commandcenter.rios.sh:6866",
       "api": "http://TODO.com",
       "coinomat": "https://test.coinomat.com",
       "datafeed": "https://marketdata.wavesplatform.com",
